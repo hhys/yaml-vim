@@ -39,5 +39,5 @@ And added the syntax highlighting listed below:
 All you have to do is to write the loading settings of this plugin to the `.vimrc`.
 
 ```VimL
-NeoBundle 'mrk21/yaml-vim'
+NeoBundle 'hhys/yaml-vim'
 ```

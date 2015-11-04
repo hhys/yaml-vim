@@ -48,38 +48,38 @@ function! yaml#Context(...)
     end
     
     " with the mappings
-    if a:line =~ '^\s*-\s\+[^:]\+:\s*$'
+    if a:line =~ '^\s*-\s\+:\=[^:]\+:\s*$'
       return a:indent + 2*l:width
     end
     
     " with the mappings and the tags
-    if a:line =~ '^\s*-\s\+[^:]\+:\s*'. s:tags_regexp .'\s*$'
+    if a:line =~ '^\s*-\s\+:\=[^:]\+:\s*'. s:tags_regexp .'\s*$'
       return a:indent + 2*l:width
     end
     
     " with the mappings, the tags and the block scalar headers
-    if a:line =~ '^\s*-\s\+[^:]\+:\s*'. s:tags_and_block_scalar_headers_regexp .'\s*$'
+    if a:line =~ '^\s*-\s\+:\=[^:]\+:\s*'. s:tags_and_block_scalar_headers_regexp .'\s*$'
       return a:indent + 2*l:width
     end
     
     " with the mappings and the flow scalars
-    if a:line =~ '^\s*-\s\+[^:]\+:\s\+.\+$'
+    if a:line =~ '^\s*-\s\+:\=[^:]\+:\s\+.\+$'
       return a:indent + l:width
     end
     
     
     " ### The mappings ###
-    if a:line =~ '^\s*[^:]\+:\s*$'
+    if a:line =~ '^\s*:\=[^:]\+:\s*$'
       return a:indent + l:width
     endif
     
     " with the tags
-    if a:line =~ '^\s*[^:]\+:\s\+'. s:tags_regexp .'\s*$'
+    if a:line =~ '^\s*:\=[^:]\+:\s\+'. s:tags_regexp .'\s*$'
       return a:indent + l:width
     endif
     
     " with the tags and the block scalar headers
-    if a:line =~ '^\s*[^:]\+:\s\+'. s:tags_and_block_scalar_headers_regexp .'\s*$'
+    if a:line =~ '^\s*:\=[^:]\+:\s\+'. s:tags_and_block_scalar_headers_regexp .'\s*$'
       return a:indent + l:width
     endif
     
